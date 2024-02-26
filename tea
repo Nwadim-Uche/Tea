@@ -1,0 +1,16 @@
+npm install otx
+var otx = require('otx');
+
+var stream = otx.getAll({
+  apikey: 'YOUR API KEY',                   // MANDATORY
+  modified_since: '2016-03-18T16:07:29',    // OPTIONAL, Default null
+  limit: 10                                 // OPTIONAL
+})
+
+stream.on('data', function(data) {
+  console.log(data);
+})
+
+stream.on('done', function(data) {
+  console.log('Download - DONE');
+})
